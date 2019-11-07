@@ -1,6 +1,4 @@
 package ua.nure.trigub.usermanagement;
-import java.time.LocalDate;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -18,19 +16,19 @@ public class UserTest extends TestCase {
 	
 	
 	/**Test case #2 DATE OF BIRTH is today*/
-	private static final int DAY_OF_BIRTH2 = 9;
-	private static final int MONTH_OF_BIRTH2 = 10;
-	private static final int ETALONE_AGE2 = CURRENT_YEAR - YEAR_OF_BIRTH;
+	private static final int DAY_OF_BIRTH2 = 2;
+	private static final int MONTH_OF_BIRTH2 = 11;
+	private static final int ETALONE_AGE2 = CURRENT_YEAR - YEAR_OF_BIRTH;//вчера
 	
 	/**Test case #3 DATE OF BIRTH is tomorrow*/
-	private static final int DAY_OF_BIRTH3 = 10;
-	private static final int MONTH_OF_BIRTH3 = 10;
-	private static final int ETALONE_AGE3 = CURRENT_YEAR - YEAR_OF_BIRTH - 1;
+	private static final int DAY_OF_BIRTH3 = 3;
+	private static final int MONTH_OF_BIRTH3 = 11;
+	private static final int ETALONE_AGE3 = CURRENT_YEAR - YEAR_OF_BIRTH;//сегодня
 	
 	/**Test case #4 DATE OF BIRTH is yesterday*/
-	private static final int DAY_OF_BIRTH4 = 8;
-	private static final int MONTH_OF_BIRTH4 = 10;
-	private static final int ETALONE_AGE4 = CURRENT_YEAR - YEAR_OF_BIRTH;
+	private static final int DAY_OF_BIRTH4 = 4;
+	private static final int MONTH_OF_BIRTH4 = 11;
+	private static final int ETALONE_AGE4 = CURRENT_YEAR - YEAR_OF_BIRTH - 1;//завтра
 	
 	/**Test case #5 DATE OF BIRTH is in future*/
 	private static final int DAY_OF_BIRTH5 = 31;
@@ -87,5 +85,13 @@ public class UserTest extends TestCase {
 		  protected void tearDown() throws Exception {
 		    super.tearDown();
 		  }
+
+	public Date getDateOfBirth() {
+			return dateOfBirth;
+		}
+
+		public void setDateOfBirth(Date dateOfBirth) {
+			this.dateOfBirth = dateOfBirth;
+		}
 	
 }
