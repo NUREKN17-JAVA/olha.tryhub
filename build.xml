@@ -1,56 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- ====================================================================== 
-     9 окт. 2019 г. 21:49:12                                                        
-
-     laba_1_java    
-     description
-                   
-     OliaTrigub                                                                
-     ====================================================================== -->
-<project name="laba_1_java" basedir ="." default="test">
-    <description>
-            description
+<project name="usermanagement" basedir="." default="test">
+  <description>
+    description
     </description>
-	
-	<property name="build-dir" value="${basedir}/target"/>
-	<property name="classes-dir" value="${basedir}/classes"/>
-	<property name="test-java-dir" value="${basedir}/src/test/java"/>
-	<property name="main-java-dir" value="${basedir}/src/main/java"/>
 
-    <!-- ================================= 
+  <property name = "build-dir" value="${basedir}/target"/>
+  <property name = "classes-dir" value="${basedir}/classes"/>
+  <property name = "test-java-dir" value="${basedir}/src/test/java"/>
+  <property name = "main-java-dir" value="${basedir}/src/main/java"/>
+
+  <!-- ================================= 
+            target: main compile             
+           ================================= -->
+
+  <target name="compile" depends="init">
+    <javac srcdir="${main-java-dir}" destdir="${build-dir}"/>
+
+  </target>
+
+  <!-- ================================= 
           target: test              
          ================================= -->
-	
-	<target name="compile" depends="init">
-	    	<javac srcdir="${main-java-dir}" destdir="${build-dir}"/>
-	    </target>
-	
 
-    <!-- - - - - - - - - - - - - - - - - - 
-          target: depends                      
-         - - - - - - - - - - - - - - - - - -->
-	
-	<target name="test" depends="test-compile" description="description">
-	    <junit>
-	      <classpath>
-	        <pathelement location="${build-dir}"/>
-	         <fileset dir="./lib"/>
-	      </classpath>
-	        	<test name = "ua.nure.trigub.usermangement.UserTest"/>
-	        	</junit>
-	    </target>
-	
-    <target name="test-compile" depends="init">
-    	<javac srcdir="${main-java-dir}" destdir="${build-dir}"/>
-    	</target>
-	
-	<target name = "init" depends="clean">
-		<mkdir dir="${build-dir}"/>	
-		<mkdir dir="${classes-dir}"/>
-		</target>
-	
-	<target name = "clean">
-		<delete dir="${classes-dir}" failonerror="no"/>
-			</target>
+  <target name="test" depends="test-compile" description="description">
+    <junit>
+      <classpath>
+        <pathelement location="${build-dir}"/>
+        <fileset dir="./lib"/>
+      </classpath>
+      <formatter type="plain"/>
+      <batchtest todir="${test-result-dir}" fork="yes">
+        <fileset dir="${test-java-dir}">
+          <include name="/*Test.java"/>
+          <exclude name="/acceptance/*Test.java"/>
+        </fileset>
+      </batchtest>
+    </junit>
+  </target>
+
+  <target name="test-compile" depends="compile">
+    <javac  srcdir="${test-java-dir}" destdir="${build-dir}">
+      <classpath>
+        <fileset dir="./lib"/>
+      </classpath>
+    </javac>
+  </target>
+	 <!-- ================================= 
+	          target: initial compile              
+	         ================================= -->
+
+  <target name="init" depends="clean">
+    <mkdir dir="${build-dir}"/>
+    <mkdir dir="${classes-dir}"/>
+  </target>
+
+  <target name="clean" >
+    <delete dir = "${build-dir}" failonerror="no" />
+  </target>
 
 </project>
