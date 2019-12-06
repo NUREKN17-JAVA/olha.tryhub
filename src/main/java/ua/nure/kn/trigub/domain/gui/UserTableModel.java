@@ -1,4 +1,4 @@
-package ua.nure.kn.panasiuk.domain.gui;
+package ua.nure.kn.trigub.domain.gui;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -6,8 +6,8 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import ua.nure.kn.panasiuk.domain.User;
-import ua.nure.kn.panasiuk.domain.util.Messages;
+import ua.nure.kn.trigub.domain.User;
+import ua.nure.kn.trigub.domain.util.Messages;
 
 public class UserTableModel extends AbstractTableModel {
 

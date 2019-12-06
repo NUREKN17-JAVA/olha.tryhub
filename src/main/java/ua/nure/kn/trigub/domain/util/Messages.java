@@ -1,4 +1,4 @@
-package ua.nure.kn.panasiuk.domain.util;
+package ua.nure.kn.trigub.domain.util;
 
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;

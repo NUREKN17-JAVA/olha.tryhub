@@ -1,4 +1,4 @@
-package ua.nure.kn.panasiuk.domain.gui;
+package ua.nure.kn.trigub.domain.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -12,8 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import ua.nure.kn.panasiuk.domain.User;
-import ua.nure.kn.panasiuk.domain.util.Messages;
+import ua.nure.kn.trigub.domain.User;
+import ua.nure.kn.trigub.domain.util.Messages;
 
 public class DetailsPanel extends JPanel implements ActionListener {
 
