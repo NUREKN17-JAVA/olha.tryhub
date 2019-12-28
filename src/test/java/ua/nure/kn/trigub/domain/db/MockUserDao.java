@@ -1,11 +1,11 @@
-package ua.nure.kn.trigub.domain.db;
+package ua.nure.kn.panasiuk.domain.db;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import ua.nure.kn.trigub.domain.User;
+import ua.nure.kn.panasiuk.domain.User;
 
 public class MockUserDao implements UserDao {
 	private long id = 0;
@@ -38,6 +38,8 @@ public class MockUserDao implements UserDao {
     public void setConnectionFactory(ConnectionFactory connectionFactory) {
     }
 
-
+    public Collection<User> find(String firstName, String lastName) {
+        throw new UnsupportedOperationException("Sorry, no implementation for you");
+    }
 
 }

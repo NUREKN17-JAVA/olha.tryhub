@@ -1,4 +1,4 @@
-package ua.nure.kn.trigub.domain.db;
+package ua.nure.kn.trigubs.domain.db;
 
 import java.sql.Connection;
 

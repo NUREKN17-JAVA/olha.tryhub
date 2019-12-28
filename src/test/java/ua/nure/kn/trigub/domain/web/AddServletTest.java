@@ -1,5 +1,4 @@
 package ua.nure.kn.trigub.domain.web;
-
 import ua.nure.kn.trigub.domain.User;
 
 import java.text.DateFormat;
