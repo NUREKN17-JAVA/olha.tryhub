@@ -1,7 +1,7 @@
-package ua.nure.kn.trigub.domain;
+package ua.nure.kn.panasiuk.domain;
 
 import junit.framework.TestCase;
-import ua.nure.kn.trigub.domain.User;
+import ua.nure.kn.panasiuk.domain.User;
 
 import java.util.Calendar;
 

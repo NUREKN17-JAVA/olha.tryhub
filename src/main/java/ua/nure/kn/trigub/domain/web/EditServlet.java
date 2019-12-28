@@ -70,10 +70,10 @@ import ua.nure.kn.trigub.domain.db.DatabaseException;
             throw new ValidationException("Last name field is empty!");
         }
         user.setLastName(req.getParameter("lastName"));
-        if (req.getParameter("dateOfBirth") == null) {
+        if (req.getParameter("dateOfBirthd") == null) {
             throw new ValidationException("Date of birth field is empty!");
         }
-        user.setDateOfBirth(DateFormat.getDateInstance().parse(req.getParameter("dateOfBirth")));
+        user.setDateOfBirthd(DateFormat.getDateInstance().parse(req.getParameter("dateOfBirthd")));
         return user;
     }
 }

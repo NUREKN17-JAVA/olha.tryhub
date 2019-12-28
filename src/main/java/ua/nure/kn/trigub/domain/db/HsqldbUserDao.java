@@ -1,6 +1,7 @@
 	package ua.nure.kn.trigub.domain.db;
 	
 	import java.sql.*;
+	import java.util.ArrayList;
 	import java.util.Collection;
 	import java.util.LinkedList;
 	
@@ -14,6 +15,7 @@
 		private static final String UPDATE_QUERY = "UPDATE users SET firstname = ?, lastname = ?, dateofbirth = ?  WHERE id = ?";
 	    private static final String SELECT_BY_ID_QUERY = "SELECT * FROM users WHERE id = ?";
 	    private static final String DELETE_QUERY = "DELETE FROM users WHERE id = ?";
+	    private static final String SELECT_USERS_BY_FULL_NAME = "SELECT * FROM users WHERE FIRSTNAME = ? AND LASTNAME = ?";
 		public HsqldbUserDao(ConnectionFactory connectionFactory){
 	        this.connectionFactory = connectionFactory;
 	    }
@@ -153,9 +155,54 @@
 	
 		@Override
 		public Collection<User> findAll() throws DatabaseException {
-			// TODO Auto-generated method stub
-			return null;
-		}
+			        Statement statement = null;
+			        ResultSet resultSet = null;
+			        try (Connection connection = connectionFactory.createConnection()) {
+			            Collection<User> users = new LinkedList<>();
+			            statement = connection.createStatement();
+			            resultSet = statement.executeQuery(SELECT_ALL_QUERY);
+			            while (resultSet.next()) {
+			                users.add(mapUser(resultSet));
+			            }
+			            statement.close();
+			            resultSet.close();
+			            return users;
+			        } catch (SQLException e) {
+			            throw new DatabaseException(e.getMessage());
+			        }
+			    }
+		
+		@Override
+	    public Collection<User> find(String firstName, String lastName) {
+	        Collection<User> userList = new ArrayList<>();
+	        Connection connection = null;
+	        try {
+	            connection = connectionFactory.createConnection();
+	            PreparedStatement statement = connection.prepareStatement(SELECT_USERS_BY_FULL_NAME);
+	            statement.setString(1, firstName);
+	            statement.setString(2, lastName);
+
+	            ResultSet resultSet = statement.executeQuery();
+	            while (resultSet.next()) {
+	                userList.add(mapUser(resultSet));
+	            }
+	            resultSet.close();
+	            statement.close();
+	            connection.close();
+	            return userList;
+	        } catch (DatabaseException | SQLException e) {
+	            e.printStackTrace();
+	        } finally {
+	            if (connection != null) {
+	                try {
+	                    connection.close();
+	                } catch (SQLException e) {
+	                    e.printStackTrace();
+	                }
+	            }
+	        }
+	        return userList;
+	    }
 
 		@Override
 		public User find(Long ID) throws DatabaseException {

@@ -44,7 +44,7 @@ public class BrowsePanel extends JPanel implements ActionListener {
     }
 
     private void initialize() {
-        this.setName("browsePanel"); 
+        this.setName("browsePanel"); //$NON-NLS-1$
         this.setLayout(new BorderLayout());
         this.add(getTablePanel(), BorderLayout.CENTER);
         this.add(getButtonsPanel(), BorderLayout.SOUTH);
@@ -64,9 +64,9 @@ public class BrowsePanel extends JPanel implements ActionListener {
     private JButton getDetailsButton() {
         if (detailsButton == null) {
             detailsButton = new JButton();
-            detailsButton.setText(Messages.getString("BrowsePanel.details")); 
-            detailsButton.setName("detailsButton"); 
-            detailsButton.setActionCommand("details");
+            detailsButton.setText(Messages.getString("BrowsePanel.details")); //$NON-NLS-1$
+            detailsButton.setName("detailsButton"); //$NON-NLS-1$
+            detailsButton.setActionCommand("details"); //$NON-NLS-1$
             detailsButton.addActionListener(this);
         }
         return detailsButton;
@@ -75,9 +75,9 @@ public class BrowsePanel extends JPanel implements ActionListener {
     private JButton getDeleteButton() {
         if (deleteButton == null) {
             deleteButton = new JButton();
-            deleteButton.setText(Messages.getString("BrowsePanel.delete")); 
-            deleteButton.setName("deleteButton");
-            deleteButton.setActionCommand("delete"); 
+            deleteButton.setText(Messages.getString("BrowsePanel.delete")); //$NON-NLS-1$
+            deleteButton.setName("deleteButton"); //$NON-NLS-1$
+            deleteButton.setActionCommand("delete"); //$NON-NLS-1$
             deleteButton.addActionListener(this);
         }
         return deleteButton;
@@ -86,9 +86,9 @@ public class BrowsePanel extends JPanel implements ActionListener {
     private JButton getEditButton() {
         if (editButton == null) {
             editButton = new JButton();
-            editButton.setText(Messages.getString("BrowsePanel.edit"));
-            editButton.setName("editButton"); 
-            editButton.setActionCommand("edit");
+            editButton.setText(Messages.getString("BrowsePanel.edit")); //$NON-NLS-1$
+            editButton.setName("editButton"); //$NON-NLS-1$
+            editButton.setActionCommand("edit"); //$NON-NLS-1$
             editButton.addActionListener(this);
         }
         return editButton;
@@ -97,9 +97,9 @@ public class BrowsePanel extends JPanel implements ActionListener {
     private JButton getAddButton() {
         if (addButton == null) {
             addButton = new JButton();
-            addButton.setText(Messages.getString("BrowsePanel.add"));
-            addButton.setName("addButton"); 
-            addButton.setActionCommand("add");
+            addButton.setText(Messages.getString("BrowsePanel.add")); //$NON-NLS-1$
+            addButton.setName("addButton"); //$NON-NLS-1$
+            addButton.setActionCommand("add"); //$NON-NLS-1$
             addButton.addActionListener(this);
         }
         return addButton;
@@ -115,7 +115,7 @@ public class BrowsePanel extends JPanel implements ActionListener {
     private JTable getUserTable() {
         if (userTable == null) {
             userTable = new JTable();
-            userTable.setName("userTable"); 
+            userTable.setName("userTable"); //$NON-NLS-1$
         }
         return userTable;
     }
@@ -135,10 +135,10 @@ public class BrowsePanel extends JPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         String actionCommand = e.getActionCommand();
-        if ("add".equalsIgnoreCase(actionCommand)) {
+        if ("add".equalsIgnoreCase(actionCommand)) { //$NON-NLS-1$
             this.setVisible(false);
             parent.showAddPanel();
-        } else if ("edit".equalsIgnoreCase(actionCommand)) {
+        } else if ("edit".equalsIgnoreCase(actionCommand)) { //$NON-NLS-1$
             int selectedRow = userTable.getSelectedRow();
             if (selectedRow == -1) {
                 JOptionPane.showMessageDialog(this, "Select a user, please",
@@ -149,7 +149,7 @@ public class BrowsePanel extends JPanel implements ActionListener {
                     .getUser(selectedRow);
             this.setVisible(false);
             parent.showEditPanel(user);
-        } else if ("delete".equalsIgnoreCase(actionCommand)) { 
+        } else if ("delete".equalsIgnoreCase(actionCommand)) { //$NON-NLS-1$
             int selectedRow = userTable.getSelectedRow();
             if (selectedRow == -1) {
                 JOptionPane.showMessageDialog(this, "Select a user, please",

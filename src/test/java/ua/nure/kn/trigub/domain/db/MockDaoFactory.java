@@ -1,4 +1,4 @@
-package ua.nure.kn.trigub.domain.db;
+package ua.nure.kn.panasiuk.domain.db;
 
 import com.mockobjects.dynamic.Mock;
 
